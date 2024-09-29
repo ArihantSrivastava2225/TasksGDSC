@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Berkshire+Swash&family=Bungee+Shade&family=Cedarville+Cursive&family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&family=Jolly+Lodger&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --shadow-color: #FF9E9E;
+    --shadow-color-light: white;
+}
+.container{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 20px;
+    width: 100vw; 
+    height: 100vh; 
+    /* 200+10+80+10=300  */
+    /* using width same as inner contents as we want rounded border of a box container both grid and my flexbox  */
+}
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container1{
+    display: grid;
+    height: 200px;
+    width: 500px;
+    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-rows: repeat(3, 1fr); */
+    grid-template-rows: 1fr 1.5fr 1fr;
+    align-content: center;
+    /* using align-content , instead of align items here as we want to place all content at center vertically and not at center. each item in our grid here individually inside their designated cells */
+    justify-content: center;
+    column-gap: 10px;
+    row-gap: 10px;
+}
+.container1 .box1{
+    grid-row: 1/3;
+    grid-column: 1/2;
+    background-color: rgb(247, 46, 86);
+    height: 210px;
+    border-top-left-radius: 7px;
+}
+.container1 .box2{
+    background-color: bisque;
+    height: 80px;
+    font-size: 23px;
+    font-family: "Cedarville Cursive", cursive;
+}
+.container1 .box3{
+    grid-row: 1/3;
+    grid-column: 3/4;
+    background-color: rgb(169, 155, 244);
+    height: 210px;
+    border-top-right-radius: 7px;
+}
+ .container1 .box4{
+    grid-column: 2/3;
+    grid-row: 2/3; 
+    /* color: white */
+    /* margin-top: 20px; we noticed that by applyinh=g height woulf interfere with gaps between rows here , and using margin and padding will be with respect to the cell space alloted at start , therefore hence we changed the middle row size to 1.5fr for required result */
+    /* height: 100px; */
+    font-family: "Bad Script", cursive;
+    font-size: 21px;
+    animation: neon 3s infinite;
+}
+/* we can comment grid rows and columns specification for box4 out as box4 will itself take this position*/
+.container1 .box5{
+    height: 80px;
+    grid-column: 1/3;
+    background-color: rgb(137, 240, 171);
+    border-bottom-left-radius: 7px;
+    font-family: "Berkshire Swash", serif;
+    font-weight: 400;
+    font-size: 24px;
+    font-style: normal;
+}
+.container1 .box6{
+    height: 80px;
+    background-color: bisque;
+    border-bottom-right-radius: 7px;
+    font-family: "Jolly Lodger", system-ui;
+    font-size: 22px;
+}
+
+@keyframes neon {
+    0% {
+      text-shadow: -1px -1px 1px var(--shadow-color-light), -1px 1px 1px var(--shadow-color-light), 1px -1px 1px var(--shadow-color-light), 1px 1px 1px var(--shadow-color-light),
+      0 0 3px var(--shadow-color-light), 0 0 10px var(--shadow-color-light), 0 0 20px var(--shadow-color-light),
+      0 0 30px var(--shadow-color), 0 0 40px var(--shadow-color), 0 0 50px var(--shadow-color), 0 0 70px var(--shadow-color), 0 0 100px var(--shadow-color), 0 0 200px var(--shadow-color);
+    }
+    50% {
+      text-shadow: -1px -1px 1px var(--shadow-color-light), -1px 1px 1px var(--shadow-color-light), 1px -1px 1px var(--shadow-color-light), 1px 1px 1px var(--shadow-color-light),
+      0 0 5px var(--shadow-color-light), 0 0 15px var(--shadow-color-light), 0 0 25px var(--shadow-color-light),
+      0 0 40px var(--shadow-color), 0 0 50px var(--shadow-color), 0 0 60px var(--shadow-color), 0 0 80px var(--shadow-color), 0 0 110px var(--shadow-color), 0 0 210px var(--shadow-color);
+    }
+    100% {
+      text-shadow: -1px -1px 1px var(--shadow-color-light), -1px 1px 1px var(--shadow-color-light), 1px -1px 1px var(--shadow-color-light), 1px 1px 1px var(--shadow-color-light),
+      0 0 3px var(--shadow-color-light), 0 0 10px var(--shadow-color-light), 0 0 20px var(--shadow-color-light),
+      0 0 30px var(--shadow-color), 0 0 40px var(--shadow-color), 0 0 50px var(--shadow-color), 0 0 70px var(--shadow-color), 0 0 100px var(--shadow-color), 0 0 200px var(--shadow-color);
+    }
+  }
