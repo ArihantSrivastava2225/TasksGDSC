@@ -8,6 +8,7 @@
     --shadow-color: #FF9E9E;
     --shadow-color-light: white;
 }
+
 .container{
     background-color: black;
     display: flex;
@@ -15,12 +16,13 @@
     justify-content: center;
     align-items: center;
     border: 2px solid black;
-    border-radius: 20px;
+    /* border-radius: 20px; */
     width: 100vw; 
     height: 100vh; 
     /* 200+10+80+10=300  */
-    /* using width same as inner contents as we want rounded border of a box container both grid and my flexbox  */
+    /* using width same as inner contents as we want rounded border of a box container both grid and my flexbox - wrong approach , correct way -  use border-top-left-radius property , etc.  */
 }
+
 .box{
     display: flex;
     justify-content: center;
@@ -73,19 +75,45 @@
 .container1 .box5{
     height: 80px;
     grid-column: 1/3;
+    grid-row: 3/4;
     background-color: rgb(137, 240, 171);
     border-bottom-left-radius: 7px;
     font-family: "Berkshire Swash", serif;
     font-weight: 400;
     font-size: 24px;
     font-style: normal;
+    margin-right: 40px;
 }
 .container1 .box6{
     height: 80px;
+    grid-column: 2/4;
+    grid-row: 3/4;
+    /* here we need to specify both grid columns and rows for both box5 and box6 as for required result , we need to overlap them over a cell and give different margins w.r.t. that cell. If we don't specify both grid columns and rows , one of them will move to next row. */
+    margin-left: 130px;
     background-color: bisque;
     border-bottom-right-radius: 7px;
     font-family: "Jolly Lodger", system-ui;
     font-size: 22px;
+}
+
+@media (max-width:600px){
+    .container1{
+        display: flex;
+        flex-direction: column;
+        width: 50vw;
+        align-items: center;
+        justify-content: center;
+    }
+    .container1 .box{
+        width: 300px;
+        height: 70px;
+    }
+    .container1 .box5{
+        margin-right: 0;
+    }
+    .container1 .box6{
+        margin-left: 0;
+    }
 }
 
 @keyframes neon {
@@ -105,3 +133,39 @@
       0 0 30px var(--shadow-color), 0 0 40px var(--shadow-color), 0 0 50px var(--shadow-color), 0 0 70px var(--shadow-color), 0 0 100px var(--shadow-color), 0 0 200px var(--shadow-color);
     }
   }
+
+.translate {
+    transform: translate(1, 1);
+    transition: transform 0.5s ease;
+}
+.scale {
+    transform: scale(1, 1);
+    transition: transform 0.5s ease;
+}
+.translateX {
+    transform: translateX(1);
+    transition: transform 0.5s ease;
+}
+.translateY {
+    transform: translateY(1);
+    transition: transform 0.5s ease;
+}
+  
+.box6:hover{
+    transform: translate(2em, 2em);
+}
+.box5:hover{
+    transform: translate(-2em,2em);
+}
+.box4:hover{
+    transform: scale(1.5, 1.5);
+}
+.box1:hover{
+    transform: translateX(-2em);
+}
+.box2:hover{
+    transform: translateY(-2em);
+}
+.box3:hover{
+    transform: translateX(2em);
+}
